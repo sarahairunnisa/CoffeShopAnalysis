@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family:"Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #333;
+  background-color: #F1D8D0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#navigation {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+}
+
+.landing-page{
+  display: row;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: -20px;
+}
+
+.banner {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: url('image/coffee-cup.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.text-banner {
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.data-card {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  background: rgba(171, 114, 117, 0.5);
+  background-size: cover; 
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.image-container h2 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.image-row {
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 5px; 
+  margin-left: 50px;
+}
+
+.image-item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.image-item img {
+  width: 100%;
+  border-radius: 5px 5px 0 0; 
+  height: 140px;
+  width: 150px;
+}
+
+.image-item p {
+  text-align: center;
+}
+
+.start{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  color: white;
+  padding-bottom: 50px;
+}
+
+.start a:hover{
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.start a {
+  color: white;
+  text-decoration: none;
+}
+
+.start a:visited {
+  color: white;
+}
+
+.start a:hover {
+  color: white;
+  font-weight: bold;
+  background-color: #E0C0B0;
+}
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .topnav a:active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .logo {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dashboard {
+    margin: 0;
+  }
+  
+  .box-container {
+    display: inline-flex;
+    gap: 50px;
+  }
+  
+  .box {
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  .box h3, .box p {
+    font-size: 14px; 
+  }
+
+  .separator {
+    text-align: left;
+    margin: 20px 0;
+  }
+  
+  .separator span {
+    background: transparent;
+    padding: 0 10px;
+  }
+  
+  .separator hr {
+    border: none;
+    border-top: 1px solid black; 
+  }
+
+  .page-wrapper {
+    margin: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.index-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  margin-right: 20px;
+  border-right: 1px solid black;
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+}
+
+.filter-options input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.filter-options h3 {
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  position: relative; 
+  width: 100%; 
+}
+
+.dropbtn {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: solid 1px black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.count {
+  margin-left: auto;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content label {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content label:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #FFEDFF;
+}
+
+
+.product-category,
+.month,
+.day {
+    margin-bottom: 20px; 
+}
+
+.product-category h3,
+.month h3,
+.day h3 {
+    font-weight: bold;
+}
+
+.line-separator {
+    border: none;
+    border-top: 1px solid black;
+    width: calc(100% - 20px);
+    margin: 10px 0; 
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.trend h2,
+.distribution h2 {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.trend h3 {
+  display: block; 
+  margin-top: 10px; 
+  font-size: 20px; 
+}
+
+
+.trendDay, .trendHour {
+  flex: 0 0 48%;
+}
+
+.trendDay canvas, .trendHour canvas {
+  max-width: 100%;
+  max-height: 300px;
+}
+
+.trend {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.transactionAndRevenue {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.totalTransaction, .totalRevenue {
+  flex: 0 0 24%;
+  margin-right: 2%;
+}
+
+#totalTransaction, #totalRevenue {
+  max-height: 300px;
+  max-width: 100%;
+}
+
+.team-members {
+  max-width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; 
+  background-image: url('image/coffee-cup2.jpg'); 
+  background-size: cover;
+}
+
+.team-category {
+  max-width: 100%;
+  margin-top: -20px;
+}
+
+.team-category h3{
+  color:black;
+}
+
+.members-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center; 
+  overflow-x: auto; 
+}
+
+.member {
+  margin: 10px;
+  text-align: center;
+  width: 100px; 
+}
+
+.member h5 {
+  color: black; 
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.member img {
+  height: 100px; 
+  width: 100px; 
+  padding: 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+}
+
+.side-by-side-categories {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+header {
+    background-color: #F2F7F5;
+    color: #333;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    display: flex; 
+    justify-content: space-between; 
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.menu a:visited {
+  color: inherit;  
+}
+
+.menu a {
+  margin-right: 20px; /* Adjust this value to increase or decrease the margin */
+}
+
+.active-link {
+  font-weight: bold;
+  color: black;
+}
+
+
+.logo-header {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+
+.section-name{
+    text-align: left;
+}
+
+.section-name h4 {
+  margin: 0; 
+  padding: 0; 
+}
+
+.menu {
+    display: flex; 
+    gap: 30px;
+    margin: auto 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+footer {
+    background-color: #F2F7F5;
+    color: #333;
+    box-shadow: 0 -3px 15px 3px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.distribution {
+  display: flex;
+  flex-direction: column;
+}
+
+.distribution-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-variety-revenue,
+.product-variety-transaction,
+.price-influence-purchasing-behaviour {
+  flex: 1 0 33%; 
+  max-width: 33%; 
+  box-sizing: border-box; 
+}
+
+.legend-container {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+
+#js-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+#js-legend li {
+  padding: 5px;
+  cursor: pointer;
+  font-size: 10px; 
+}
+
+#js-legend li span {
+  display: inline-block;
+  width: 10px;
+  height: 10px; 
+  margin-right: 5px;
+}
+
+
+.storeTableContainer {
+  width: 100%;
+  flex: 0 0 48%;
+  margin-bottom: 20px;
+}
+
+.storeTableContainer h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  height: 40px; 
+  line-height: 40px; 
+}
+
+.storeTable {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+}
+
+#storeTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#storeTable thead {
+  position: sticky;
+  top: 0;
+  background-color: #fff; 
+  z-index: 1; 
+}
+
+#storeTable th, #storeTable td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+#storeTable th {
+  background-color: #f2f2f2; 
+}
+
+

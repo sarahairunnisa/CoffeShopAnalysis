@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Dashboard</title>
+    <link rel="icon" href="image/Logo-RevoU-5.png" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css"
+    />
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"
+    ></script>
+    <script>
+      window.allCharts = [];
+    </script>
+  </head>
+  <body>
+      <div id="navigation"></div>
+      <script src="navigation.js"></script>
+      <div class="page-wrapper">
+        <div class="content">
+          <h2 class="dashboard">Dashboard Coffee Shop</h2>
+          <div class="box-container">
+            <div class="box">
+              <h3>Total Transaction</h3>
+              <p></p>
+            </div>
+            <div class="box">
+              <h3>Total Revenue</h3>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="separator">
+          <hr />
+          <span>Filter</span>
+          <hr />
+        </div>
+        <div class="index-container">
+          <div class="filter-options">
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="btn-content"
+                  >Product Category <span class="count"></span>
+                  <span class="arrow">&#9660;</span></span
+                >
+              </button>
+              <div class="dropdown-content">
+                <label><input type="checkbox" value="Tea" checked /> Tea</label>
+                <label
+                  ><input type="checkbox" value="Drinking Chocolate" checked />
+                  Drinking Chocolate</label
+                >
+                <label
+                  ><input type="checkbox" value="Coffee" checked />
+                  Coffee</label
+                >
+                <label
+                  ><input type="checkbox" value="Bakery" checked />
+                  Bakery</label
+                >
+                <label
+                  ><input type="checkbox" value="Flavours" checked />
+                  Flavours</label
+                >
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="btn-content"
+                  >Store <span class="count"></span>
+                  <span class="arrow">&#9660;</span></span
+                >
+              </button>
+              <div class="dropdown-content">
+                <label
+                  ><input type="checkbox" value="Astoria" checked />
+                  Astoria</label
+                >
+                <label
+                  ><input type="checkbox" value="Hell's Kitchen" checked />
+                  Hell's Kitchen</label
+                >
+                <label
+                  ><input type="checkbox" value="Lower Manhattan" checked />
+                  Lower Manhattan</label
+                >
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="btn-content"
+                  >Month <span class="count"></span>
+                  <span class="arrow">&#9660;</span></span
+                >
+              </button>
+              <div class="dropdown-content">
+                <label
+                  ><input type="checkbox" value="January" checked />
+                  January</label
+                >
+                <label
+                  ><input type="checkbox" value="February" checked />
+                  February</label
+                >
+                <label
+                  ><input type="checkbox" value="March" checked /> March</label
+                >
+                <label
+                  ><input type="checkbox" value="April" checked /> April</label
+                >
+                <label><input type="checkbox" value="May" checked /> May</label>
+                <label
+                  ><input type="checkbox" value="June" checked /> June</label
+                >
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="btn-content"
+                  >Day <span class="count"></span>
+                  <span class="arrow">&#9660;</span></span
+                >
+              </button>
+              <div class="dropdown-content">
+                <label
+                  ><input type="checkbox" value="Monday" checked />
+                  Monday</label
+                >
+                <label
+                  ><input type="checkbox" value="Tuesday" checked />
+                  Tuesday</label
+                >
+                <label
+                  ><input type="checkbox" value="Wednesday" checked />
+                  Wednesday</label
+                >
+                <label
+                  ><input type="checkbox" value="Thursday" checked />
+                  Thursday</label
+                >
+                <label
+                  ><input type="checkbox" value="Friday" checked />
+                  Friday</label
+                >
+                <label
+                  ><input type="checkbox" value="Saturday" checked />
+                  Saturday</label
+                >
+                <label
+                  ><input type="checkbox" value="Sunday" checked />
+                  Sunday</label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="data">
+            <h2>Trend</h2>
+            <div class="trend">
+              <div class="trendDay">
+                <h3>Daily Transaction per Product Type</h3>
+                <canvas
+                  class="box"
+                  id="trendDay"
+                  style="margin-bottom: 20px"
+                ></canvas>
+              </div>
+              <div class="trendHour">
+                <h3>Average Transaction Per Hour</h3>
+                <canvas
+                  class="box"
+                  id="trendHour"
+                  style="margin-bottom: 20px"
+                ></canvas>
+              </div>
+            </div>
+            <div class="transactionAndRevenue">
+              <div class="totalTransaction">
+                <h4>Total Transactions per Product Type</h4>
+                <canvas class="box" id="totalTransaction"></canvas>
+              </div>
+              <div class="totalRevenue">
+                <h4>Total Revenue per Product Type</h4>
+                <canvas class="box" id="totalRevenue"></canvas>
+              </div>
+              <div class="storeTableContainer">
+                <h3>Leading Store for Each Product Type</h3>
+                <div class="storeTable">
+                  <table id="storeTable">
+                    <thead>
+                      <tr>
+                        <th>Product Type</th>
+                        <th>Store</th>
+                        <th>Transactions</th>
+                        <th>Revenue</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="distribution">
+              <h2>Distribution</h2>
+              <div class="distribution-wrapper">
+                <div class="product-variety-revenue">
+                  <h3>Product Variety on Revenue</h3>
+                  <canvas class="box" id="product-variety-revenue"></canvas>
+                </div>
+                <div class="product-variety-transaction">
+                  <h3>Product Variety on Transaction</h3>
+                  <canvas class="box" id="product-variety-transaction"></canvas>
+                </div>
+                <div class="price-influence-purchasing-behaviour">
+                  <h3>Price Influence on Purchasing Behaviour</h3>
+                  <canvas
+                    class="box"
+                    id="price-influence-purchasing-behaviour"
+                  ></canvas>
+                </div>
+              </div>
+              <div class="legend-container" style="margin-top: 10px">
+                <div id="js-legend" class="chart-legend"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script type="module" src="colors.js"></script>
+    <script type="module" src="script/trendDay.js"></script>
+    <script type="module" src="script/totalTransaction.js"></script>
+    <script type="module" src="script/totalRevenue.js"></script>
+    <script type="module" src="script/productVarietyRevenue.js"></script>
+    <script type="module" src="script/productVarietyTransaction.js"></script>
+    <script
+      type="module"
+      src="script/priceInfluencePurchasingBehaviour.js"
+    ></script>
+    <script type="module" src="script/leadingStore.js"></script>
+    <script type="module" src="script/trendHour.js"></script>
+
+    <div id="footer"></div>
+    <script src="footer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chart.js-plugin-labels-dv": "^5.0.1-beta",
+    "papaparse": "^5.4.1"
+  }
+}
